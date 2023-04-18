@@ -2,6 +2,8 @@
 """
 pascal triangle
 """
+
+
 def fac(n):
     """
     factoriel de n
@@ -11,11 +13,13 @@ def fac(n):
         res *= i
     return res
 
+
 def cmb(k, n):
     """
     combinaison
     """
     return fac(n) // (fac(n-k) * fac(k))
+
 
 def pascal_triangle(n):
     """
