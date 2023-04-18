@@ -15,7 +15,7 @@ def cmb(k, n):
     """
     combinaison
     """
-    return fac(n) // (fac(n-k)*fac(k))
+    return fac(n) // (fac(n-k) * fac(k))
 
 def pascal_triangle(n):
     """
