@@ -17,7 +17,7 @@ def canUnlockAll(boxes):
         return False
     for i in res:
         for j in boxes[i]:
-            if j <= len(boxes) - 1:
+            if j <= len(boxes) - 1 and j not in res:
                 res.append(j)
     if len(res) >= len(boxes):
         return True
