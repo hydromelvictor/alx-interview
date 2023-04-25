@@ -7,6 +7,7 @@ chaque case peut contenir les clés des autres cases.
 Write a method that determines if all the boxes can be opened.
 """
 
+
 def canUnlockAll(boxes):
     """
     boxes : parameters
