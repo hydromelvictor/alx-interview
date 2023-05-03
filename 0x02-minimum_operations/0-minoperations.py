@@ -20,9 +20,9 @@ def mul(n):
             r = i
     if r == 0:
         return n
-    s.append(sum(mul(r)) if type(r) is not int else r)
+    s.append(sum(mul(r)) if type(r) is not int else mul(r))
     r = n // r
-    s.append(sum(mul(r)) if type(r) is not int else r)
+    s.append(sum(mul(r)) if type(r) is not int else mul(r))
     return s
 
 
