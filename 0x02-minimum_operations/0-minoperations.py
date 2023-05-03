@@ -20,8 +20,9 @@ def mul(n):
             r = i
     if r == 0:
         return n
-    s.append(r)
-    return s.append(mul(n // r))
+    s.append(mul(r))
+    s.append(mul(n // r))
+    return s
 
 
 def minOperations(n):
