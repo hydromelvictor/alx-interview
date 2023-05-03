@@ -5,10 +5,9 @@ character H. Your text editor can
 execute only two operations in
 this file:
 """
-from typing import List
 
 
-def mul(n: int) -> List[int] | int:
+def mul(n):
     """
     n :int
     """
