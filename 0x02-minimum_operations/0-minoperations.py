@@ -20,7 +20,7 @@ def mul(n):
             r = i
     if r == 0:
         return n
-    s.append(sum(mul(r)) if type(r) is not int else mul(r))
+    s.append(sum(mul(r)) if type(r) != int else mul(r))
     s.append(n // r)
     return s
 
