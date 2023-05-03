@@ -36,4 +36,4 @@ def minOperations(n):
     s = mul(n)
     if type(s) == int:
         return s
-    return sum(r)
+    return sum(s)
