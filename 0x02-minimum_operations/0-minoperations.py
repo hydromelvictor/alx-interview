@@ -35,4 +35,10 @@ def minOperations(n):
     s = mul(n)
     if type(s) == int:
         return s
-    return sum(s)
+    r = []
+    for i in s:
+        if type(i) != int:
+            r.append(sum(i))
+        else:
+            r.append(i)
+    return sum(r)
