@@ -5,6 +5,27 @@ character H. Your text editor can
 execute only two operations in
 this file:
 """
+from typing import List
+
+
+def mul(n: int) -> List[int] | int:
+    """
+    n :int
+    """
+    s = []
+    r = 0
+    if n == 2 or n == 3:
+        return n
+    for i in range(2, n // 2):
+        if n % i == 0:
+            r = i
+    if r == 0:
+        return n
+    s.append(r)
+    s.append(mul(n // r))
+    return s
+
+
 def minOperations(n):
     """
     n : int
@@ -12,3 +33,12 @@ def minOperations(n):
     """
     if n <= 1:
         return 0
+    s = mul(n)
+    if type(s) == int:
+        return s
+    r = []
+    for i in s:
+        if type(i) != int:
+            r = sum(i)
+        r.append(i)
+    return sum(r)
