@@ -39,5 +39,6 @@ def minOperations(n):
     for i in s:
         if type(i) != int:
             r = sum(i)
-        r.append(i)
+        else:
+            r.append(i)
     return sum(r)
