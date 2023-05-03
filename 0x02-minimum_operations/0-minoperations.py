@@ -20,8 +20,9 @@ def mul(n):
             r = i
     if r == 0:
         return n
-    s.append(mul(r))
-    s.append(mul(n // r))
+    s.append(mul(r) if type(r) is not int else r)
+    r = n // r
+    s.append(mul(r) if type(r) is not int else (r))
     return s
 
 
@@ -35,10 +36,4 @@ def minOperations(n):
     s = mul(n)
     if type(s) == int:
         return s
-    r = []
-    for i in s:
-        if type(i) != int:
-            r.append(sum(i))
-        else:
-            r.append(i)
     return sum(r)
