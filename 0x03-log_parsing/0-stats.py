@@ -1,21 +1,23 @@
 #!/usr/bin/python3
 """
-Write a script that reads stdin line by line and computes metrics
+Write a script that reads stdin line by line
+and computes metrics
 """
 import sys
-import re
 
-def printer(size, code):
+
+def printer(size: int, code: dict(), i) -> None:
     """
     printer function
     """
     print("File size: {}".format(size))
     for key, val in sorted(code.items()):
         if val:
-            print(f"{key}: {val}")
+            i -= 1
+            print(f"{i} {key}: {val}")
 
 
-def parsing():
+def parsing() -> None:
     """
     return : none
     """
@@ -41,10 +43,10 @@ def parsing():
                 pass
 
             if i % 10 == 0:
-                printer(size, code)
-        printer(size, code)
+                printer(size, code, i)
+        printer(size, code, i)
     except KeyboardInterrupt:
-        printer(size, code)
+        printer(size, code, i)
 
 
 if __name__ == '__main__':
