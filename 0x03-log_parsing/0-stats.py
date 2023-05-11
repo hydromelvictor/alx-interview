@@ -16,10 +16,8 @@ def printer(size: int, code: dict) -> None:
             print(f"{key}: {val}")
 
 
-def parsing() -> None:
-    """
-    return : none
-    """
+
+if __name__ == '__main__':
     size = 0
     i = 0
     status = ["200", "301", "400", "401", "403", "404", "405", "500"]
@@ -28,25 +26,18 @@ def parsing() -> None:
         for url in sys.stdin:
             line = url.split()
             i += 1
-
             try:
                 size += int(line[-1])
             except Exception:
                 pass
-
             try:
                 stat = line[-2]
                 if stat in code:
                     code[stat] += 1
             except Exception:
                 pass
-
             if i % 10 == 0:
                 printer(size, code)
         printer(size, code)
     except KeyboardInterrupt:
         printer(size, code)
-
-
-if __name__ == '__main__':
-    parsing()
