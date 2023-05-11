@@ -41,5 +41,6 @@ def parsing():
         for key, val in code.items():
             print(f"{key}: {val}")
 
+
 if __name__ == '__main__':
     parsing()
