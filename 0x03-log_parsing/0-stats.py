@@ -15,7 +15,6 @@ def parsing():
     date_re = r"(\d+/\d+/\d+)"
     status_re = r"(200|301|400|401|403|404|405|500)"
     size_re = r"(\d+)$"
-    format = ip_re + ' - ' + '[' + date_re + ']' + "GET /projects/260 HTTP/1.1" + ' ' + status_re + ' ' + size_re
     i = 0
     size = 0
     status = [200, 301, 400, 401, 403, 404, 405, 500]
@@ -23,9 +22,6 @@ def parsing():
 
     for line in sys.stdin:
         i += 1
-
-        if re.search(format, line) != line:
-            continue
 
         size += int(line[-1])
         if line[-2] in status:
