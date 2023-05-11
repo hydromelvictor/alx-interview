@@ -10,11 +10,11 @@ def parsing():
     """
     return : none
     """
-    i = 0
     size = 0
-    status = [200, 301, 400, 401, 403, 404, 405, 500]
+    status = ["200", "301", "400", "401", "403", "404", "405", "500"]
     code = {i: 0 for i in status}
     try:
+        i = 0
         for url in sys.stdin:
             line = url.split()
             i += 1
