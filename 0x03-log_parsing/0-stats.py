@@ -5,16 +5,25 @@ Write a script that reads stdin line by line and computes metrics
 import sys
 import re
 
+def printer(size, code):
+    """
+    printer function
+    """
+    print("File size: {}".format(size))
+    for key, val in sorted(code.items()):
+        if val:
+            print(f"{key}: {val}")
+
 
 def parsing():
     """
     return : none
     """
     size = 0
+    i = 0
     status = ["200", "301", "400", "401", "403", "404", "405", "500"]
     code = {i: 0 for i in status}
     try:
-        i = 0
         for url in sys.stdin:
             line = url.split()
             i += 1
@@ -26,20 +35,16 @@ def parsing():
 
             try:
                 stat = line[-2]
-                if stat in status:
+                if stat in code:
                     code[stat] += 1
             except Exception:
                 pass
 
             if i % 10 == 0:
-                print("File size: {}".format(size))
-                for key, val in code.items():
-                    print(f"{key}: {val}")
-
+                printer(size, code)
+        printer(size, code)
     except KeyboardInterrupt:
-        print("File size: {}".format(size))
-        for key, val in code.items():
-            print(f"{key}: {val}")
+        printer(size, code)
 
 
 if __name__ == '__main__':
