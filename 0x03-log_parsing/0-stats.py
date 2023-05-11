@@ -13,14 +13,11 @@ def printer(size: int, code: dict) -> None:
     print("File size: {}".format(size))
     for key, val in sorted(code.items()):
         if val:
-            i -= 1
             print(f"{key}: {val}")
 
 
-def parsing() -> None:
-    """
-    return : none
-    """
+if __name__ == '__main__':
+
     size = 0
     i = 0
     status = ["200", "301", "400", "401", "403", "404", "405", "500"]
@@ -47,7 +44,4 @@ def parsing() -> None:
         printer(size, code)
     except KeyboardInterrupt:
         printer(size, code)
-
-
-if __name__ == '__main__':
-    parsing()
+        raise
