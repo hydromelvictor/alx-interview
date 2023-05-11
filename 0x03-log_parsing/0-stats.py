@@ -32,3 +32,6 @@ def parsing():
             print("File size: {}".format(size))
             for key, val in code.items():
                 print(f"{key}: {val}")
+
+if __name__ == '__main__':
+    parsing()
