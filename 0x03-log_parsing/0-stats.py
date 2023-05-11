@@ -6,7 +6,7 @@ and computes metrics
 import sys
 
 
-def printer(size: int, code: dict(), i) -> None:
+def printer(size: int, code: dict) -> None:
     """
     printer function
     """
@@ -14,7 +14,7 @@ def printer(size: int, code: dict(), i) -> None:
     for key, val in sorted(code.items()):
         if val:
             i -= 1
-            print(f"{i} {key}: {val}")
+            print(f"{key}: {val}")
 
 
 def parsing() -> None:
@@ -43,10 +43,10 @@ def parsing() -> None:
                 pass
 
             if i % 10 == 0:
-                printer(size, code, i)
-        printer(size, code, i)
+                printer(size, code)
+        printer(size, code)
     except KeyboardInterrupt:
-        printer(size, code, i)
+        printer(size, code)
 
 
 if __name__ == '__main__':
