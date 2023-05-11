@@ -18,19 +18,21 @@ def parsing():
     format = ip_re + ' - ' + '[' + date_re + ']' + "GET /projects/260 HTTP/1.1" + ' ' + status_re + ' ' + size_re
     i = 0
     size = 0
-    code = []
+    status = [200, 301, 400, 401, 403, 404, 405, 500]
+    code = {i: 0 for i in status}
+
     with open(sys.stdin) as file:
         line = file.readline()
         i += 1
 
-        if re.search(format, line) == line:
-            lines.append(line)
-            size += int(re.search(size_re, line[::-1])[0])
-            n = re.search(status_re, line[::-1])
-            if n not in code:
-                code.append(n)
+        if re.search(format, line) != line:
+            continue
 
-        if i == 9:
+        size += int(line[-1])
+        if line[-2] in status:
+            code[line[-2]] += 1
+
+        if i % 10 == 0:
             print("File size: {}".format(size))
-            for j in code:
-                print("{}: 4".format(j))
+            for key, val in code.items():
+                print(f"{key}: {val}")
