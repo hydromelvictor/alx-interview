@@ -6,18 +6,18 @@ and computes metrics
 import sys
 
 
-def printer(size: int, code: dict) -> None:
-    """
-    printer function
-    """
-    print("File size: {}".format(size))
-    for key, val in sorted(code.items()):
-        if val:
-            print(f"{key}: {val}")
-
-
 
 if __name__ == '__main__':
+
+    def printer(size: int, code: dict) -> None:
+        """
+        printer function
+        """
+        print("File size: {}".format(size))
+        for key, val in sorted(code.items()):
+            if val:
+                print(f"{key}: {val}")
+
     size = 0
     i = 0
     status = ["200", "301", "400", "401", "403", "404", "405", "500"]
