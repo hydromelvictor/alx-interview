@@ -6,7 +6,6 @@ and computes metrics
 import sys
 
 
-
 if __name__ == '__main__':
 
     def printer(size: int, code: dict) -> None:
