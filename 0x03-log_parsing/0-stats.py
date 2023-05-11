@@ -12,10 +12,10 @@ if __name__ == '__main__':
         """
         printer function
         """
-        print("File size: {}".format(size))
+        print("File size: {:d}".format(size))
         for key, val in sorted(code.items()):
             if val:
-                print(f"{key}: {val}")
+                print("{}: {}".format(key, val))
 
     size = 0
     i = 0
@@ -40,3 +40,4 @@ if __name__ == '__main__':
         printer(size, code)
     except KeyboardInterrupt:
         printer(size, code)
+        raise
