@@ -16,12 +16,14 @@ def printer(size: int, code: dict) -> None:
             print(f"{key}: {val}")
 
 
-if __name__ == '__main__':
-
+def parsing() -> None:
+    """
+    return : none
+    """
     size = 0
     i = 0
     status = ["200", "301", "400", "401", "403", "404", "405", "500"]
-    code = {i: 0 for i in status}
+    code = {key: 0 for key in status}
     try:
         for url in sys.stdin:
             line = url.split()
@@ -44,4 +46,7 @@ if __name__ == '__main__':
         printer(size, code)
     except KeyboardInterrupt:
         printer(size, code)
-        raise
+
+
+if __name__ == '__main__':
+    parsing()
