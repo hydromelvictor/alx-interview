@@ -22,13 +22,15 @@ def validUTF8(data):
                 return False
             i += 2
         elif byte & 0b11110000 == 0b11100000:
-            if i + 2 >= count or any((data[i + j + 1] & 0b11000000)
-                                     != 0b10000000 for j in range(2)):
+            if i + 2 >= count or any(
+                (data[i + j + 1] & 0b11000000) != 0b10000000
+                    for j in range(2)):
                 return False
             i += 3
         elif byte & 0b11111000 == 0b11110000:
-            if i + 3 >= count or any((data[i + j + 1] & 0b11000000)
-                                     != 0b10000000 for j in range(3)):
+            if i + 3 >= count or any(
+                (data[i + j + 1] & 0b11000000) != 0b10000000
+                    for j in range(3)):
                 return False
             i += 4
         else:
