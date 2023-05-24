@@ -24,11 +24,11 @@ def nqueens():
         print([[]])
         exit(1)
 
-    for k in range(n):
+    for l in range(n):
         line = []
-        for l in range(n):
+        for k in range(n):
             if k != l and k + l != n - 1:
-                line.append([l, k])
+                line.append([k, l])
         print(line)
 
 
