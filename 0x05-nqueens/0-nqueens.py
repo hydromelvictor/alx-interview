@@ -20,14 +20,14 @@ def nqueens():
         print('N must be at least 4')
         exit(1)
     
-    if n % 2 == 0:
+    if n % 2 != 0:
         print([[]])
 
     for k in range(n):
         line = []
         for l in range(n):
             if k != l and k + l != n - 1:
-                line.append([i, j])
+                line.append([k, l])
             print(line)
 
 
