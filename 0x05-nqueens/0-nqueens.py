@@ -26,9 +26,9 @@ def nqueens():
 
     for k in range(n):
         line = []
-        for l in range(n):
-            if k != l and k + l != n - 1:
-                line.append([k, l])
+        for l in range(n + 1):
+            if l!= n and k != l and k + l != n - 1:
+                line.append([l, k])
         print(line)
 
 
