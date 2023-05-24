@@ -29,7 +29,7 @@ def nqueens():
         for l in range(n):
             if k != l and k + l != n - 1:
                 line.append([k, l])
-            print(line)
+        print(line)
 
 
 if __name__ == '__main__':
