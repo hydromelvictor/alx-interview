@@ -22,6 +22,7 @@ def nqueens():
     
     if n % 2 != 0:
         print([[]])
+        exit(1)
 
     for k in range(n):
         line = []
