@@ -7,10 +7,9 @@ import sys
 
 def diagLeftBottom(pos, n):
     line = []
-    p, q = pos
+    p, q = tuple(pos)
     while p < (n - 1) or q > 0:
-        line.append(p)
-        line.append(q)
+        line.extend([p, q])
         p += 1
         q -= 1
     return line
@@ -18,10 +17,9 @@ def diagLeftBottom(pos, n):
 
 def diagLeftTop(pos, n):
     line = []
-    p, q = pos
+    p, q = tuple(pos)
     while p > 0 or q > 0:
-        line.append(p)
-        line.append(q)
+        line.extend([p, q])
         p -= 1
         q -= 1
     return line
@@ -29,10 +27,9 @@ def diagLeftTop(pos, n):
 
 def diagRigthBottom(pos, n):
     line = []
-    p, q = pos
+    p, q = tuple(pos)
     while p < (n - 1) or q < (n - 1):
-        line.append(p)
-        line.append(q)
+        line.extend([p, q])
         p += 1
         q += 1
     return line
@@ -40,10 +37,9 @@ def diagRigthBottom(pos, n):
 
 def diagRigthTop(pos, n):
     line = []
-    p, q = pos
+    p, q = tuple(pos)
     while p > 0 or q < (n - 1):
-        line.append(p)
-        line.append(q)
+        line.extend([p, q])
         p -= 1
         q += 1
     return line
@@ -80,7 +76,7 @@ def nqueens():
                     break
             if s != 0:
                 continue
-            p, q = pos
+            p, q = tuple(pos)
             if pos not in line and p not in bad and q not in bad:
                 line.append(pos)
                 bad.extend(diagLeftTop(pos, n))
