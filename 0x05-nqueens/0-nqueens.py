@@ -65,7 +65,7 @@ def nqueens():
         print('N must be at least 4')
         exit(1)
     # toutes les positions de l'echiquier
-    ech = [[i, j] for i in range(n) for j in range(n)]
+    ech = [[i, j] for j in range(n) for i in range(n)]
     tr = 0
     # boucle parcours n fois
     while tr < n:
