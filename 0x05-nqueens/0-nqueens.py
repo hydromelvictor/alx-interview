@@ -81,7 +81,7 @@ def nqueens():
             if s != 0:
                 continue
             p, q = pos
-            if pos not in line and p not in bad and q not in bad:
+            if p not in bad and q not in bad:
                 line.append(pos)
                 bad.extend(diagLeftTop(pos, n))
                 bad.extend(diagLeftBottom(pos, n))
