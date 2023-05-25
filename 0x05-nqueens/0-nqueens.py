@@ -5,6 +5,49 @@ non-attacking queens on an NxN chessboard
 import sys
 
 
+def diagRigthBottom(point, n):
+    line = []
+    i, j = point
+    if i < n and j < n:
+        while (i < n or j < n):
+            line.extend([i, j])
+            i += 1
+            j += 1
+    return line
+
+
+def diagRigthTop(point, n):
+    line = []
+    i, j = point
+    if i > 0 and j < n:
+        while (i >= 0 and j < n):
+            line.extend([i, j])
+            i -= 1
+            j += 1
+    return line
+
+
+def diagLeftBottom(point, n):
+    line = []
+    i, j = point
+    if i < n and j > 0:
+        while (i < n or j >= 0):
+            line.extend([i, j])
+            i += 1
+            j -= 1
+    return line
+
+
+def diagLeftTop(point, n):
+    line = []
+    i, j = point
+    if i >= 0 and j >= 0:
+        while (i >= 0 or j >= 0):
+            line.extend([i, j])
+            i -= 1
+            j -= 1
+    return line
+
 def nqueens():
     """n queens resolve"""
     if len(sys.argv) < 2:
@@ -20,16 +63,26 @@ def nqueens():
         print('N must be at least 4')
         exit(1)
     
-    if n % 2 != 0:
-        print([[]])
-        exit(1)
-
-    for k in range(n + 1):
-        line = []
-        for l in range(n):
-            if k!= n and k != l and k + l != n - 1:
-                line.append([l, k])
-        print(line)
+    echiquier = [[i, j] for i in range(n) for j in range(n)]
+    result = []
+    bad = []
+    line = []
+    s = 0
+    for c in echiquier:
+        for k in echiquier[s:n]:
+            i, j = k
+            if k not in line and i not in bad and j not in bad:
+                line.append(k)
+                bad.extend(diagLeftBottom(k, n)) \
+                   .extend(diagLeftTop(k, n)) \
+                   .extend(diagRigthBottom(k, n)) \
+                   .extend(diagRigthTop(k, n))
+        s += 1
+        if len(line) == n:
+            result.append(line)
+            print(line)
+        if s == n:
+            break
 
 
 if __name__ == '__main__':
