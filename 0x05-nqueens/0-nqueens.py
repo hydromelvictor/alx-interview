@@ -65,13 +65,21 @@ def nqueens():
         print('N must be at least 4')
         exit(1)
     # toutes les positions de l'echiquier
-    ech = [[i, j] for j in range(n) for i in range(n)]
+    ech = [[i, j] for i in range(n) for j in range(n)]
     tr = 0
     # boucle parcours n fois
+    res = []
     while tr < n:
         line = []
         bad = []
-        for pos in ech[tr:]:
+        for pos in ech:
+            s = 0
+            for k in res:
+                if pos in k:
+                    s = 1
+                    break
+            if s != 0:
+                continue
             p, q = pos
             if pos not in line and p not in bad and q not in bad:
                 line.append(pos)
@@ -80,6 +88,7 @@ def nqueens():
                 bad.extend(diagRigthTop(pos, n))
                 bad.extend(diagRigthBottom(pos, n))
         if len(line) == n:
+            res.append(line)
             print(line)
         tr += 1
 
