@@ -101,8 +101,7 @@ def nqueens():
                         res.remove(_row)
                     except Exception:
                         pass
-        
-        print(res)
+        print(res if len(res) == n else [])
 
 
 if __name__ == '__main__':
