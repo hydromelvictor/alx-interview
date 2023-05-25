@@ -73,7 +73,7 @@ def nqueens():
         bad = []
         for pos in ech[tr:]:
             p, q = pos
-            if pos not in line and p not in bad and q not in bas:
+            if pos not in line and p not in bad and q not in bad:
                 line.append(pos)
                 bad.extend(diagLeftTop(pos, n))
                 bad.extend(diagLeftBottom(pos, n))
