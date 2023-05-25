@@ -67,9 +67,9 @@ def nqueens():
     echiquier = [[i, j] for i in range(n) for j in range(n)]
     result = []
     bad = []
-    line = []
     s = 0
-    for c in echiquier:
+    while(s < n):
+        line = []
         for k in echiquier[s:n]:
             i, j = k
             if k not in line and i not in bad and j not in bad:
@@ -83,8 +83,6 @@ def nqueens():
             result.append(line)
             print(line)
         line.clear()
-        if s == n:
-            break
 
 
 if __name__ == '__main__':
