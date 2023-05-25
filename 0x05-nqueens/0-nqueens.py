@@ -73,19 +73,34 @@ def nqueens():
         p, q = tuple(elt)
         for _row in res:
             if p in _row or q in _row:
-                res.remove(_row)
+                try:
+                    res.remove(_row)
+                except Exception:
+                    pass
             for z in diagLeftBottom(elt, n):
                 if z in _row:
-                    res.remove(_row)
+                    try:
+                        res.remove(_row)
+                    except Exception:
+                        pass
             for z in diagLeftTop(elt, n):
                 if z in _row:
-                    res.remove(_row)
+                    try:
+                        res.remove(_row)
+                    except Exception:
+                        pass
             for z in diagRigthBottom(elt, n):
                 if z in _row:
-                    res.remove(_row)
+                    try:
+                        res.remove(_row)
+                    except Exception:
+                        pass
             for z in diagRigthTop(elt, n):
                 if z in _row:
-                    res.remove(_row)
+                    try:
+                        res.remove(_row)
+                    except Exception:
+                        pass
         if len(res) == n:
             print(res)
 
