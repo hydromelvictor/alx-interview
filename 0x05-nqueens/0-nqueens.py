@@ -8,44 +8,40 @@ import sys
 def diagRigthBottom(point, n):
     line = []
     i, j = point
-    if i < (n - 1) and j < (n - 1):
-        while (i < (n - 1) or j < (n - 1)):
-            line.extend([i, j])
-            i += 1
-            j += 1
+    while (i < (n - 1) or j < (n - 1)):
+        line.extend([i, j])
+        i += 1
+        j += 1
     return line
 
 
 def diagRigthTop(point, n):
     line = []
     i, j = point
-    if i > 0 and j < n:
-        while (i >= 0 and j < n):
-            line.extend([i, j])
-            i -= 1
-            j += 1
+    while (i > 0 and j < (n - 1)):
+        line.extend([i, j])
+        i -= 1
+        j += 1
     return line
 
 
 def diagLeftBottom(point, n):
     line = []
     i, j = point
-    if i < n and j > 0:
-        while (i < n or j >= 0):
-            line.extend([i, j])
-            i += 1
-            j -= 1
+    while (i < (n - 1) or j > 0):
+        line.extend([i, j])
+        i += 1
+        j -= 1
     return line
 
 
 def diagLeftTop(point, n):
     line = []
     i, j = point
-    if i >= 0 and j >= 0:
-        while (i >= 0 or j >= 0):
-            line.extend([i, j])
-            i -= 1
-            j -= 1
+    while (i > 0 or j > 0):
+        line.extend([i, j])
+        i -= 1
+        j -= 1
     return line
 
 
