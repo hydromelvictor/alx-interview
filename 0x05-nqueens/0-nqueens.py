@@ -7,9 +7,10 @@ import sys
 
 def diagLeftBottom(pos, n):
     line = []
-    p, q = tuple(pos)
+    p, q = pos
     while p < (n - 1) or q > 0:
-        line.extend([p, q])
+        line.append(p)
+        line.append(q)
         p += 1
         q -= 1
     return line
@@ -17,9 +18,10 @@ def diagLeftBottom(pos, n):
 
 def diagLeftTop(pos, n):
     line = []
-    p, q = tuple(pos)
+    p, q = pos
     while p > 0 or q > 0:
-        line.extend([p, q])
+        line.append(p)
+        line.append(q)
         p -= 1
         q -= 1
     return line
@@ -27,9 +29,10 @@ def diagLeftTop(pos, n):
 
 def diagRigthBottom(pos, n):
     line = []
-    p, q = tuple(pos)
+    p, q = pos
     while p < (n - 1) or q < (n - 1):
-        line.extend([p, q])
+        line.append(p)
+        line.append(q)
         p += 1
         q += 1
     return line
@@ -37,9 +40,10 @@ def diagRigthBottom(pos, n):
 
 def diagRigthTop(pos, n):
     line = []
-    p, q = tuple(pos)
+    p, q = pos
     while p > 0 or q < (n - 1):
-        line.extend([p, q])
+        line.append(p)
+        line.append(q)
         p -= 1
         q += 1
     return line
@@ -62,31 +66,28 @@ def nqueens():
         exit(1)
     # toutes les positions de l'echiquier
     ech = [[i, j] for i in range(n) for j in range(n)]
-    tr = 0
-    # boucle parcours n fois
-    res = []
-    while tr < n:
-        line = []
-        bad = []
-        for pos in ech:
-            s = 0
-            for k in res:
-                if pos in k:
-                    s = 1
-                    break
-            if s != 0:
-                continue
-            p, q = tuple(pos)
-            if pos not in line and p not in bad and q not in bad:
-                line.append(pos)
-                bad.extend(diagLeftTop(pos, n))
-                bad.extend(diagLeftBottom(pos, n))
-                bad.extend(diagRigthTop(pos, n))
-                bad.extend(diagRigthBottom(pos, n))
-        if len(line) == n:
-            res.append(line)
-            print(line)
-        tr += 1
+    prs = [k for k in ech[:n]]
+
+    for elt in prs:
+        res = ech[:]
+        p, q = tuple(elt)
+        for _row in res:
+            if p in _row or q in _row:
+                res.remove(_row)
+            for z in diagLeftBottom(elt, n):
+                if z in _row:
+                    res.remove(_row)
+            for z in diagLeftTop(elt, n):
+                if z in _row:
+                    res.remove(_row)
+            for z in diagRigthBottom(elt, n):
+                if z in _row:
+                    res.remove(_row)
+            for z in diagRigthTop(elt, n):
+                if z in _row:
+                    res.remove(_row)
+        if len(res) == n:
+            print(res)
 
 
 if __name__ == '__main__':
