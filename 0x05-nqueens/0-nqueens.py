@@ -8,8 +8,8 @@ import sys
 def diagRigthBottom(point, n):
     line = []
     i, j = point
-    if i < n and j < n:
-        while (i < n or j < n):
+    if i < (n - 1) and j < (n - 1):
+        while (i < (n - 1) or j < (n - 1)):
             line.extend([i, j])
             i += 1
             j += 1
