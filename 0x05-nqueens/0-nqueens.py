@@ -71,7 +71,7 @@ def nqueens():
         line = []
         for k in echiquier[s:n]:
             i, j = k
-            if k not in line and i not in bad and j not in bad:
+            if k not in line and (i not in bad or j not in bad):
                 line.append(k)
                 bad.extend(diagLeftBottom(k, n))
                 bad.extend(diagLeftTop(k, n))
