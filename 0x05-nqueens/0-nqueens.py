@@ -48,6 +48,7 @@ def diagLeftTop(point, n):
             j -= 1
     return line
 
+
 def nqueens():
     """n queens resolve"""
     if len(sys.argv) < 2:
@@ -81,6 +82,7 @@ def nqueens():
         if len(line) == n:
             result.append(line)
             print(line)
+        line.clear()
         if s == n:
             break
 
