@@ -64,7 +64,7 @@ def nqueens():
         print('N must be at least 4')
         exit(1)
     
-    echiquier = [[i, j] for j in range(n) for j in range(n)]
+    echiquier = [[i, j] for i in range(n) for j in range(n)]
     result = []
     bad = []
     s = 0
