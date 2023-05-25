@@ -9,10 +9,10 @@ def diagLeftBottom(pos, n):
     line = []
     p, q = pos
     while p < (n - 1) or q > 0:
-        line.append(p)
-        line.append(q)
         p += 1
         q -= 1
+        line.append(p)
+        line.append(q)
     return line
 
 
@@ -20,10 +20,10 @@ def diagLeftTop(pos, n):
     line = []
     p, q = pos
     while p > 0 or q > 0:
-        line.append(p)
-        line.append(q)
         p -= 1
         q -= 1
+        line.append(p)
+        line.append(q)
     return line
 
 
@@ -31,10 +31,10 @@ def diagRigthBottom(pos, n):
     line = []
     p, q = pos
     while p < (n - 1) or q < (n - 1):
-        line.append(p)
-        line.append(q)
         p += 1
         q += 1
+        line.append(p)
+        line.append(q)
     return line
 
 
@@ -42,10 +42,10 @@ def diagRigthTop(pos, n):
     line = []
     p, q = pos
     while p > 0 or q < (n - 1):
-        line.append(p)
-        line.append(q)
         p -= 1
         q += 1
+        line.append(p)
+        line.append(q)
     return line
 
 
