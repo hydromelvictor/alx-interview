@@ -65,7 +65,6 @@ def nqueens():
         exit(1)
     
     echiquier = [[i, j] for i in range(n) for j in range(n)]
-    result = []
     bad = []
     s = 0
     while(s < n):
@@ -80,9 +79,7 @@ def nqueens():
                    .extend(diagRigthTop(k, n))
         s += 1
         if len(line) == n:
-            result.append(line)
             print(line)
-        line.clear()
 
 
 if __name__ == '__main__':
