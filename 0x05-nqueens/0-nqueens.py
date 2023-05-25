@@ -73,10 +73,10 @@ def nqueens():
             i, j = k
             if k not in line and i not in bad and j not in bad:
                 line.append(k)
-                bad.extend(diagLeftBottom(k, n)) \
-                   .extend(diagLeftTop(k, n)) \
-                   .extend(diagRigthBottom(k, n)) \
-                   .extend(diagRigthTop(k, n))
+                bad.extend(diagLeftBottom(k, n))
+                bad.extend(diagLeftTop(k, n))
+                bad.extend(diagRigthBottom(k, n))
+                bad.extend(diagRigthTop(k, n))
         s += 1
         if len(line) == n:
             print(line)
