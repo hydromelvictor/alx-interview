@@ -21,7 +21,7 @@ async function main () {
     const char = await validStatus(elt);
     const name = JSON.parse(char).name
     console.log(name);
-  })
+  });
 }
 
 main();
