@@ -2,7 +2,7 @@
 const request = require('request');
 const { argv } = require('process');
 
-const url = 'https://swapi-api.hbtn.io/api/films/';
+const url = 'https://swapi-api.alx-tools.com/api/films/';
 function validStatus (link) {
   return new Promise(function (resolve, reject) {
     request(link, (error, response, body) => {
