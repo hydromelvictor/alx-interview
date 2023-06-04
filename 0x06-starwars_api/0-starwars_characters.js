@@ -2,7 +2,7 @@
 const request = require('request');
 
 const movie = proccess.argv[2];
-const baseUrl = 'https://swapi-api.alx-tools.com/';
+const baseUrl = 'https://swapi-api.hbtn.io/api/';
 const endpoint = `${baseUrl}/films/${movie}`;
 
 request(endpoint, (error, response, body) => {
