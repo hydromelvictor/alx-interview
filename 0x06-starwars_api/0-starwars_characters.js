@@ -6,18 +6,14 @@ const movie = proccess.argv[2];
 const baseUrl = 'https://swapi-api.hbtn.io/api/';
 const endpoint = `${baseUrl}/films/${movie}`;
 
-request(endpoint, (error, response, body) => {
-  if (!error && response.statusCode === 200) {
-    const film = JSON.parse(body);
-    const characters = film.characters;
+async function starWars() {
+  const resp = await request(endpoint).body;
+  const film = JSON.parse(resp);
+  const characters = film.characters;
 
-    characters.forEach((charUrl) => {
-      request(charUrl, (error, reponse, body) => {
-        if (!error && reponse.statusCode === 200) {
-          const character = JSON.parse(body);
-          console.log(character.name);
-        }
-      });
-    });
+  for (let i = 0; i < characters.length; i++) {
+    let name_resp = await request(characters[i]).body;
+    let name = JSON.parse(name_resp);
+    console.log(name.name);
   }
-});
+}
