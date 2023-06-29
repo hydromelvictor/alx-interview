@@ -40,10 +40,10 @@ def isWinner(x, nums):
                     if k % n == 0 and k in res:
                         res.remove(k)
                 ens = res[:]
-            i += 1
-    if len(ens) != 0:
-        if 2 % i == 0:
-            return 'Maria'
-        else:
-            return 'Ben'
+                i += 1
+    #if len(ens) != 0:
+    if 2 % i == 0:
+        return 'Maria'
+    else:
+        return 'Ben'
     return None
