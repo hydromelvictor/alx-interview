@@ -8,42 +8,48 @@ def isprime(p):
     """ prime number """
     if p == 0 or p == 1:
         return False
-    if p == 2:
-        return True
-    else:
-        for i in range(2, p - 1):
-            if i % p == 0:
-                return False
-        return True
 
+    for i in range(2, p):
+        if i % p == 0:
+            return False
+    return True
+
+
+def rm(n, rang):
+    """ remove multiple"""
+    for i in rang:
+        if i % n == 0:
+            rang.remove(i)
+    return rang
+
+def indic(rang):
+    """ indic """
+    i = 0
+    for j in rang:
+        if isprime(j):
+            i += 1
+            rang = rm(j, rang)
+    return i
 
 def isWinner(x, nums):
     """ winner
         maria est pair
         ben est impair
     """
-    i = 0
-    ens = None
+    if x == 0 or nums == []:
+        return None
+
+    game = {'Maria': 0, 'Ben': 0}
     for tr in range(x):
-        ens = list(range(1, nums[tr] + 1))
-        for _ in range(len(ens)):
-            n = 0
-            res = None
-            for s in ens:
-                if isprime(s):
-                    n = s
-                    break
-            if n:
-                res = ens[:]
-                res.remove(n)
-                for k in ens:
-                    if k % n == 0 and k in res:
-                        res.remove(k)
-                ens = res[:]
-                i += 1
-    #if len(ens) != 0:
-    if 2 % i == 0:
+        rang = [s for s in range(1, x + 1)]
+        ind = indic(rang)
+        if ind % 2 == 0:
+            game['Ben'] += 1
+        elif ind % 2 != 0:
+            game['Maria'] += 1
+    if game['Ben'] > game['Maria']:
+        return 'Ben'
+    elif game['Ben'] < game['Maria']:
         return 'Maria'
     else:
-        return 'Ben'
-    return None
+        return None
