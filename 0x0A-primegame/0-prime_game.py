@@ -22,6 +22,7 @@ def rm(n, rang):
             rang.remove(i)
     return rang
 
+
 def indic(rang):
     """ indic """
     i = 0
@@ -30,6 +31,7 @@ def indic(rang):
             i += 1
             rang = rm(j, rang)
     return i
+
 
 def isWinner(x, nums):
     """ winner
