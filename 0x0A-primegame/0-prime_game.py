@@ -11,14 +11,14 @@ def isprime(p):
     if p == 2:
         return True
     else:
-        for i in range(2, p // 2):
+        for i in range(2, p - 1):
             if i % p == 0:
                 return False
         return True
 
 
 def isWinner(x, nums):
-    """ winner 
+    """ winner
         maria est pair
         ben est impair
     """
@@ -26,7 +26,7 @@ def isWinner(x, nums):
     ens = None
     for tr in range(x):
         ens = list(range(1, nums[tr] + 1))
-        for l in range(len(ens)):
+        for _ in range(len(ens)):
             n = 0
             res = None
             for s in ens:
@@ -40,7 +40,7 @@ def isWinner(x, nums):
                     if k % n == 0 and k in res:
                         res.remove(k)
                 ens = res[:]
-            i += 1
+                i += 1
     if len(ens) != 0:
         if 2 % i == 0:
             return 'Maria'
