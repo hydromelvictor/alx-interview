@@ -43,7 +43,6 @@ def isWinner(x, nums):
 
     game = {'Maria': 0, 'Ben': 0}
     for tr in range(x):
-        h = nums[x]
         rang = [s for s in range(1, x + 1)]
         ind = indic(rang)
         if ind % 2 == 0:
